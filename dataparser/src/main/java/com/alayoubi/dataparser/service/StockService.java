@@ -6,12 +6,14 @@
 package com.alayoubi.dataparser.service;
 
 import com.alayoubi.dataparser.model.Stock;
+import com.alayoubi.dataparser.model.StockRequest;
 
 import java.io.IOException;
 
 
 public interface StockService {
 
-    public Stock getStockQuote(String symbol, String function, String outputSize, String dataType, String fromDate, String toDate) throws IOException;
+    public Stock getStockQuote(StockRequest stockRequest) throws IOException;
+
 
 }

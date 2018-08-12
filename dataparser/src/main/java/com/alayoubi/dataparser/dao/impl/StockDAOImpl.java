@@ -6,7 +6,9 @@
 package com.alayoubi.dataparser.dao.impl;
 
 import com.alayoubi.dataparser.dao.StockDAO;
+import com.alayoubi.dataparser.model.CandleStick;
 import com.alayoubi.dataparser.model.Stock;
+import com.alayoubi.dataparser.model.StockRequest;
 import com.alayoubi.dataparser.util.StockUtil;
 
 
@@ -28,7 +30,14 @@ import java.net.URL;
 public class StockDAOImpl implements StockDAO {
 
     @Override
-    public Stock getStockQuote(String symbol, String function, String outputSize, String dataType, String fromDate, String toDate) throws IOException {
+    public Stock getStockQuote(StockRequest stockRequest) throws IOException {
+
+        String symbol = stockRequest.getSymbol();
+        String function = stockRequest.getFunction();
+        String outputSize = stockRequest.getOutputSize();
+        String dataType = stockRequest.getDataType();
+        String fromDate = stockRequest.getFromDate();
+        String toDate = stockRequest.getToDate();
 
         URL url = new URL(StockUtil.prepareRequest(symbol, function, outputSize, dataType));
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -46,16 +55,17 @@ public class StockDAOImpl implements StockDAO {
         in.close();
 
         StockBuilder builder = new StockBuilder();
-        builder.build(content.toString(), symbol, fromDate, toDate);
-
-
-
 
         con.disconnect();
 
+        System.out.println(content.toString());
+        Stock stock = builder.build(content.toString(), symbol, fromDate, toDate, function);
 
+        for(CandleStick candleStick : stock.getStock()){
+            System.out.println(candleStick.getClose());
+        }
 
+        return stock;
 
-        return null;
     }
 }

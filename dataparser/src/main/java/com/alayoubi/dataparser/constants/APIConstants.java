@@ -10,39 +10,39 @@ public interface APIConstants {
     /**
      * Parameters values
      * */
-    static String TIME_SERIES_DAILY = "TIME_SERIES_DAILY";
-    static String TIME_SERIES_WEEKLY = "TIME_SERIES_WEEKLY";
-    static String TIME_SERIES_MONTHLY = "TIME_SERIES_MONTHLY";
-    static String TIME_SERIES_INTRADAY = "TIME_SERIES_INTRADAY";
+    static final String TIME_SERIES_DAILY = "TIME_SERIES_DAILY";
+    static final String TIME_SERIES_WEEKLY = "TIME_SERIES_WEEKLY";
+    static final String TIME_SERIES_MONTHLY = "TIME_SERIES_MONTHLY";
+    static final String TIME_SERIES_INTRADAY = "TIME_SERIES_INTRADAY";
 
-    static String API_KEY_VALUE = "W7NVMOADDFAEPXYE";
-    static String JSON_DATA_TYPE = "json";
-    static String CSV_DATA_TYPE = "csv";
-    static String FULL_OUTPUT_SIZE = "full";
-    static String COMPACT_OUTPUT_SIZE = "compact";
+    static final String API_KEY_VALUE = "W7NVMOADDFAEPXYE";
+    static final String JSON_DATA_TYPE = "json";
+    static final String CSV_DATA_TYPE = "csv";
+    static final String FULL_OUTPUT_SIZE = "full";
+    static final String COMPACT_OUTPUT_SIZE = "compact";
 
 
 
     /**
      * Parameters
      * */
-    static String URL_ = "https://www.alphavantage.co/query?";
-    static String FUNCTION = "function";
-    static String SYMBOL = "symbol";
-    static String API_KEY = "apikey";
-    static String DATA_TYPE = "datatype";
-    static String OUTPUT_SIZE = "outputsize";
+    static final String URL_ = "https://www.alphavantage.co/query?";
+    static final String FUNCTION = "function";
+    static final String SYMBOL = "symbol";
+    static final String API_KEY = "apikey";
+    static final String DATA_TYPE = "datatype";
+    static final String OUTPUT_SIZE = "outputsize";
 
 
 
     /**
      * JSON Constants
      * */
-    static String META_DATA = "Meta Data";
-    static String CLOSE = "4. close";
-    static String HIGH = "2. high";
-    static String OPEN = "1. open";
-    static String VOLUME = "5. volume";
-    static String LOW = "3. low";
+    static final String META_DATA = "Meta Data";
+    static final String CLOSE = "4. close";
+    static final String HIGH = "2. high";
+    static final String OPEN = "1. open";
+    static final String VOLUME = "5. volume";
+    static final String LOW = "3. low";
 
 }

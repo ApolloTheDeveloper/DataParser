@@ -8,10 +8,11 @@ package com.alayoubi.dataparser.dao;
 
 
 import com.alayoubi.dataparser.model.Stock;
+import com.alayoubi.dataparser.model.StockRequest;
 
 import java.io.IOException;
 
 public interface StockDAO {
 
-    Stock getStockQuote(String symbol, String function, String outputSize, String dataType, String fromDate, String toDate) throws IOException;
+    Stock getStockQuote(StockRequest stockRequest) throws IOException;
 }

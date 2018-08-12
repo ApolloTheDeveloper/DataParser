@@ -7,6 +7,7 @@ package com.alayoubi.dataparser.service.impl;
 
 import com.alayoubi.dataparser.model.Stock;
 import com.alayoubi.dataparser.dao.StockDAO;
+import com.alayoubi.dataparser.model.StockRequest;
 import com.alayoubi.dataparser.service.StockService;
 
 
@@ -23,7 +24,7 @@ public class StockServiceImpl implements StockService {
     StockDAO stockDAO;
 
     @Override
-    public Stock getStockQuote(String symbol, String function, String outputSize, String dataType, String fromDate, String toDate) throws IOException {
-        return stockDAO.getStockQuote(symbol, function, outputSize, dataType, fromDate, toDate);
+    public Stock getStockQuote(StockRequest stockRequest) throws IOException {
+        return stockDAO.getStockQuote(stockRequest);
     }
 }

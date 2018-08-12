@@ -10,6 +10,8 @@ import org.json.simple.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -52,6 +54,20 @@ public class StockUtil {
 
     public static int getJsonAsInt(JSONObject jsonObject, String key){
         return Integer.parseInt(jsonObject.get(key).toString());
+    }
+
+    public static Date StringToDate(String s){
+
+        Date result = null;
+        try{
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            result  = dateFormat.parse(s);
+        }
+
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        return result ;
     }
 
 

@@ -7,7 +7,9 @@ package com.alayoubi.dataparser.restservice;
 
 
 
+import com.alayoubi.dataparser.model.DailyReturn;
 import com.alayoubi.dataparser.model.Stock;
+import com.alayoubi.dataparser.model.StockRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,13 +31,13 @@ public class StockRestService {
     StockService stockService;
 
     @RequestMapping("/quote")
-    public Stock getStockQuote(@RequestParam(value = "symbol", defaultValue="AMZN") String symbol,
-                               @RequestParam(value="function", defaultValue = TIME_SERIES_DAILY) String function,
-                               @RequestParam(value="outputSize", defaultValue = COMPACT_OUTPUT_SIZE) String outputSize,
-                               @RequestParam(value="dataType", defaultValue = JSON_DATA_TYPE) String dataType,
-                               @RequestParam(value="fromDate", defaultValue = "2018-06-20") String fromDate,
-                               @RequestParam(value="toDate", defaultValue = "2018-08-10") String toDate) throws IOException {
-        return stockService.getStockQuote(symbol, function, outputSize, dataType, fromDate, toDate);
+    public Stock getStockQuote(@RequestParam(value = "stockRequest") StockRequest stockRequest
+    ) throws IOException {
+        return stockService.getStockQuote(stockRequest);
 
     }
+//    @RequestMapping("/returns")
+//    public DailyReturn getStockQuote(@RequestParam(value="stock") Stock stock){
+//        if()
+//    }
 }
