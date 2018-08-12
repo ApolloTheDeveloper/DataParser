@@ -1,6 +1,7 @@
 package com.alayoubi.dataparser.model;
 
 
+import javax.validation.constraints.NotNull;
 
 public class StockRequest {
 
@@ -12,14 +13,17 @@ public class StockRequest {
     private String outputSize;
 
 
+    @NotNull
     public String getSymbol() {
         return symbol;
     }
+
 
     public void setSymbol(String symbol) {
         this.symbol = symbol;
     }
 
+    @NotNull
     public String getFunction() {
         return function;
     }
@@ -28,6 +32,7 @@ public class StockRequest {
         this.function = function;
     }
 
+    @NotNull
     public String getDataType() {
         return dataType;
     }
@@ -36,6 +41,7 @@ public class StockRequest {
         this.dataType = dataType;
     }
 
+    @NotNull
     public String getFromDate() {
         return fromDate;
     }
@@ -44,6 +50,7 @@ public class StockRequest {
         this.fromDate = fromDate;
     }
 
+    @NotNull
     public String getToDate() {
         return toDate;
     }
@@ -52,6 +59,7 @@ public class StockRequest {
         this.toDate = toDate;
     }
 
+    @NotNull
     public String getOutputSize() {
         return outputSize;
     }

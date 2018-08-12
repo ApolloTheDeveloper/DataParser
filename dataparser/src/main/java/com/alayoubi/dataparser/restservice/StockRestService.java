@@ -12,10 +12,12 @@ import com.alayoubi.dataparser.model.Stock;
 import com.alayoubi.dataparser.model.StockRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.alayoubi.dataparser.service.StockService;
 
+import javax.validation.Valid;
 import java.io.IOException;
 
 import static com.alayoubi.dataparser.constants.APIConstants.COMPACT_OUTPUT_SIZE;
@@ -30,13 +32,13 @@ public class StockRestService {
     @Autowired
     StockService stockService;
 
-    @RequestMapping("/quote")
-    public Stock getStockQuote(@RequestParam(value = "stockRequest") StockRequest stockRequest
-    ) throws IOException {
+    @RequestMapping(value="/quote", method = RequestMethod.GET)
+    public Stock getStockQuote(@Valid StockRequest stockRequest) throws IOException {
         return stockService.getStockQuote(stockRequest);
-
     }
-//    @RequestMapping("/returns")
+
+
+//    @RequestMapping(value="/returns", method=RequestMethod.GET)
 //    public DailyReturn getStockQuote(@RequestParam(value="stock") Stock stock){
 //        if()
 //    }
